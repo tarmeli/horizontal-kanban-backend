@@ -1,0 +1,19 @@
+type Task {
+    id: ID! @id
+    user: User
+    name: String!
+    body: String!
+    taskState: Int!
+    priority: Int!
+    createdAt: DateTime! @createdAt
+    deadline: DateTime
+    updatedAt: DateTime! @updatedAt
+}
+
+type User {
+    id: ID! @id
+    name: String!
+    email: String! @unique
+    password: String!
+    tasks: [Task!]!
+}

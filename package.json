@@ -1,0 +1,28 @@
+{
+  "name": "horizontal-kanban-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tarmeli/horizontal-kanban-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tarmeli/horizontal-kanban-backend/issues"
+  },
+  "homepage": "https://github.com/tarmeli/horizontal-kanban-backend#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "graphql-yoga": "^1.18.2",
+    "jsonwebtoken": "^8.5.1",
+    "nodemon": "^1.19.1",
+    "prisma-client-lib": "^1.34.6"
+  }
+}

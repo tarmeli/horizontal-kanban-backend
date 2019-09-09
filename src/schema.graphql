@@ -1,0 +1,39 @@
+scalar DateTime
+
+type Query {
+    info: String! # these are root fields
+    tasks: [Task!]! # same as feed
+}
+
+type Mutation {
+    newTask(name: String!, body: String!, taskState: Int!, priority: Int!, deadline: DateTime): Task! # same as post
+    #editTask(name: String, body: String, priority: Int): Task!
+    #moveTask(taskState: Int!): Task!
+    #deleteTask(id: ID!): Task
+    signup(name: String!, email: String!, password: String!): AuthPayLoad
+    login(email: String!, password: String!): AuthPayLoad
+}
+
+type Task { # same as Link
+    id: ID!
+    name: String!
+    user: User
+    body: String!
+    taskState: Int!
+    priority: Int!
+    createdAt: DateTime!
+    deadline: DateTime
+    updatedAt: DateTime!
+}
+
+type User {
+    id: ID!
+    name: String!
+    email: String!
+    tasks: [Task!]!
+}
+
+type AuthPayLoad {
+    token: String
+    user: User
+}
