@@ -68,7 +68,7 @@ type Subscription {
 
 type Task {
   id: ID!
-  user: User
+  user: User!
   name: String!
   body: String!
   taskState: Int!
@@ -86,7 +86,7 @@ type TaskConnection {
 
 input TaskCreateInput {
   id: ID
-  user: UserCreateOneWithoutTasksInput
+  user: UserCreateOneWithoutTasksInput!
   name: String!
   body: String!
   taskState: Int!
@@ -250,7 +250,7 @@ input TaskSubscriptionWhereInput {
 }
 
 input TaskUpdateInput {
-  user: UserUpdateOneWithoutTasksInput
+  user: UserUpdateOneRequiredWithoutTasksInput
   name: String
   body: String
   taskState: Int
@@ -491,12 +491,10 @@ input UserUpdateManyMutationInput {
   password: String
 }
 
-input UserUpdateOneWithoutTasksInput {
+input UserUpdateOneRequiredWithoutTasksInput {
   create: UserCreateWithoutTasksInput
   update: UserUpdateWithoutTasksDataInput
   upsert: UserUpsertWithoutTasksInput
-  delete: Boolean
-  disconnect: Boolean
   connect: UserWhereUniqueInput
 }
 
