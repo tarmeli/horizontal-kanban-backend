@@ -1,6 +1,6 @@
 type Task {
     id: ID! @id
-    user: User
+    user: User!
     name: String!
     body: String!
     taskState: Int!

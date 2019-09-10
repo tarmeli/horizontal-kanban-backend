@@ -170,12 +170,10 @@ export type UserOrderByInput =
 
 export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
-export interface UserUpdateOneWithoutTasksInput {
+export interface UserUpdateOneRequiredWithoutTasksInput {
   create?: Maybe<UserCreateWithoutTasksInput>;
   update?: Maybe<UserUpdateWithoutTasksDataInput>;
   upsert?: Maybe<UserUpsertWithoutTasksInput>;
-  delete?: Maybe<Boolean>;
-  disconnect?: Maybe<Boolean>;
   connect?: Maybe<UserWhereUniqueInput>;
 }
 
@@ -326,7 +324,7 @@ export interface TaskSubscriptionWhereInput {
 
 export interface TaskCreateInput {
   id?: Maybe<ID_Input>;
-  user?: Maybe<UserCreateOneWithoutTasksInput>;
+  user: UserCreateOneWithoutTasksInput;
   name: String;
   body: String;
   taskState: Int;
@@ -449,7 +447,7 @@ export interface TaskUpsertWithWhereUniqueWithoutUserInput {
 }
 
 export interface TaskUpdateInput {
-  user?: Maybe<UserUpdateOneWithoutTasksInput>;
+  user?: Maybe<UserUpdateOneRequiredWithoutTasksInput>;
   name?: Maybe<String>;
   body?: Maybe<String>;
   taskState?: Maybe<Int>;

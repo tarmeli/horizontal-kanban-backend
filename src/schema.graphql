@@ -17,7 +17,7 @@ type Mutation {
 type Task { # same as Link
     id: ID!
     name: String!
-    user: User
+    user: User!
     body: String!
     taskState: Int!
     priority: Int!
