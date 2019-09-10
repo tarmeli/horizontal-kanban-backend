@@ -44,8 +44,44 @@ const newTask = (parent, args, context) => {
     })
 }
 
+const editTask = (parent, args, context) => {
+    getUserId(context)
+    return context.prisma.updateTask({
+        data: {
+            name: args.name,
+            body: args.body,
+            priority: args.priority,
+        },
+        where: {
+            id: args.id,
+        },
+    })
+}
+
+const moveTask = (parent, args, context) => {
+    getUserId(context)
+    return context.prisma.updateTask({
+        data: {
+            taskState: args.taskState
+        },
+        where: {
+            id: args.id
+        },
+    })
+}
+
+const deleteTask = (parent, args, context) => {
+    getUserId(context)
+    return context.prisma.deleteTask({
+        id: args.id
+    })
+}
+
 module.exports = {
     signup,
     login,
-    newTask
+    newTask,
+    editTask,
+    moveTask,
+    deleteTask
 }
