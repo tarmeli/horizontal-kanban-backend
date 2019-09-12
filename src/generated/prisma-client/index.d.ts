@@ -238,14 +238,20 @@ export interface TaskWhereInput {
   taskState_lte?: Maybe<Int>;
   taskState_gt?: Maybe<Int>;
   taskState_gte?: Maybe<Int>;
-  priority?: Maybe<Int>;
-  priority_not?: Maybe<Int>;
-  priority_in?: Maybe<Int[] | Int>;
-  priority_not_in?: Maybe<Int[] | Int>;
-  priority_lt?: Maybe<Int>;
-  priority_lte?: Maybe<Int>;
-  priority_gt?: Maybe<Int>;
-  priority_gte?: Maybe<Int>;
+  priority?: Maybe<String>;
+  priority_not?: Maybe<String>;
+  priority_in?: Maybe<String[] | String>;
+  priority_not_in?: Maybe<String[] | String>;
+  priority_lt?: Maybe<String>;
+  priority_lte?: Maybe<String>;
+  priority_gt?: Maybe<String>;
+  priority_gte?: Maybe<String>;
+  priority_contains?: Maybe<String>;
+  priority_not_contains?: Maybe<String>;
+  priority_starts_with?: Maybe<String>;
+  priority_not_starts_with?: Maybe<String>;
+  priority_ends_with?: Maybe<String>;
+  priority_not_ends_with?: Maybe<String>;
   createdAt?: Maybe<DateTimeInput>;
   createdAt_not?: Maybe<DateTimeInput>;
   createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
@@ -307,7 +313,7 @@ export interface TaskUpdateManyMutationInput {
   name?: Maybe<String>;
   body?: Maybe<String>;
   taskState?: Maybe<Int>;
-  priority?: Maybe<Int>;
+  priority?: Maybe<String>;
   deadline?: Maybe<DateTimeInput>;
 }
 
@@ -328,7 +334,7 @@ export interface TaskCreateInput {
   name: String;
   body: String;
   taskState: Int;
-  priority: Int;
+  priority: String;
   deadline?: Maybe<DateTimeInput>;
 }
 
@@ -336,7 +342,7 @@ export interface TaskUpdateManyDataInput {
   name?: Maybe<String>;
   body?: Maybe<String>;
   taskState?: Maybe<Int>;
-  priority?: Maybe<Int>;
+  priority?: Maybe<String>;
   deadline?: Maybe<DateTimeInput>;
 }
 
@@ -396,14 +402,20 @@ export interface TaskScalarWhereInput {
   taskState_lte?: Maybe<Int>;
   taskState_gt?: Maybe<Int>;
   taskState_gte?: Maybe<Int>;
-  priority?: Maybe<Int>;
-  priority_not?: Maybe<Int>;
-  priority_in?: Maybe<Int[] | Int>;
-  priority_not_in?: Maybe<Int[] | Int>;
-  priority_lt?: Maybe<Int>;
-  priority_lte?: Maybe<Int>;
-  priority_gt?: Maybe<Int>;
-  priority_gte?: Maybe<Int>;
+  priority?: Maybe<String>;
+  priority_not?: Maybe<String>;
+  priority_in?: Maybe<String[] | String>;
+  priority_not_in?: Maybe<String[] | String>;
+  priority_lt?: Maybe<String>;
+  priority_lte?: Maybe<String>;
+  priority_gt?: Maybe<String>;
+  priority_gte?: Maybe<String>;
+  priority_contains?: Maybe<String>;
+  priority_not_contains?: Maybe<String>;
+  priority_starts_with?: Maybe<String>;
+  priority_not_starts_with?: Maybe<String>;
+  priority_ends_with?: Maybe<String>;
+  priority_not_ends_with?: Maybe<String>;
   createdAt?: Maybe<DateTimeInput>;
   createdAt_not?: Maybe<DateTimeInput>;
   createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
@@ -451,7 +463,7 @@ export interface TaskUpdateInput {
   name?: Maybe<String>;
   body?: Maybe<String>;
   taskState?: Maybe<Int>;
-  priority?: Maybe<Int>;
+  priority?: Maybe<String>;
   deadline?: Maybe<DateTimeInput>;
 }
 
@@ -483,7 +495,7 @@ export interface TaskCreateWithoutUserInput {
   name: String;
   body: String;
   taskState: Int;
-  priority: Int;
+  priority: String;
   deadline?: Maybe<DateTimeInput>;
 }
 
@@ -578,7 +590,7 @@ export interface TaskUpdateWithoutUserDataInput {
   name?: Maybe<String>;
   body?: Maybe<String>;
   taskState?: Maybe<Int>;
-  priority?: Maybe<Int>;
+  priority?: Maybe<String>;
   deadline?: Maybe<DateTimeInput>;
 }
 
@@ -680,7 +692,7 @@ export interface Task {
   name: String;
   body: String;
   taskState: Int;
-  priority: Int;
+  priority: String;
   createdAt: DateTimeOutput;
   deadline?: DateTimeOutput;
   updatedAt: DateTimeOutput;
@@ -692,7 +704,7 @@ export interface TaskPromise extends Promise<Task>, Fragmentable {
   name: () => Promise<String>;
   body: () => Promise<String>;
   taskState: () => Promise<Int>;
-  priority: () => Promise<Int>;
+  priority: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
   deadline: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
@@ -706,7 +718,7 @@ export interface TaskSubscription
   name: () => Promise<AsyncIterator<String>>;
   body: () => Promise<AsyncIterator<String>>;
   taskState: () => Promise<AsyncIterator<Int>>;
-  priority: () => Promise<AsyncIterator<Int>>;
+  priority: () => Promise<AsyncIterator<String>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   deadline: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
@@ -720,7 +732,7 @@ export interface TaskNullablePromise
   name: () => Promise<String>;
   body: () => Promise<String>;
   taskState: () => Promise<Int>;
-  priority: () => Promise<Int>;
+  priority: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
   deadline: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
@@ -764,7 +776,7 @@ export interface TaskPreviousValues {
   name: String;
   body: String;
   taskState: Int;
-  priority: Int;
+  priority: String;
   createdAt: DateTimeOutput;
   deadline?: DateTimeOutput;
   updatedAt: DateTimeOutput;
@@ -777,7 +789,7 @@ export interface TaskPreviousValuesPromise
   name: () => Promise<String>;
   body: () => Promise<String>;
   taskState: () => Promise<Int>;
-  priority: () => Promise<Int>;
+  priority: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
   deadline: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
@@ -790,7 +802,7 @@ export interface TaskPreviousValuesSubscription
   name: () => Promise<AsyncIterator<String>>;
   body: () => Promise<AsyncIterator<String>>;
   taskState: () => Promise<AsyncIterator<Int>>;
-  priority: () => Promise<AsyncIterator<Int>>;
+  priority: () => Promise<AsyncIterator<String>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   deadline: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;

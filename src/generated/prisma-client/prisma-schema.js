@@ -72,7 +72,7 @@ type Task {
   name: String!
   body: String!
   taskState: Int!
-  priority: Int!
+  priority: String!
   createdAt: DateTime!
   deadline: DateTime
   updatedAt: DateTime!
@@ -90,7 +90,7 @@ input TaskCreateInput {
   name: String!
   body: String!
   taskState: Int!
-  priority: Int!
+  priority: String!
   deadline: DateTime
 }
 
@@ -104,7 +104,7 @@ input TaskCreateWithoutUserInput {
   name: String!
   body: String!
   taskState: Int!
-  priority: Int!
+  priority: String!
   deadline: DateTime
 }
 
@@ -137,7 +137,7 @@ type TaskPreviousValues {
   name: String!
   body: String!
   taskState: Int!
-  priority: Int!
+  priority: String!
   createdAt: DateTime!
   deadline: DateTime
   updatedAt: DateTime!
@@ -194,14 +194,20 @@ input TaskScalarWhereInput {
   taskState_lte: Int
   taskState_gt: Int
   taskState_gte: Int
-  priority: Int
-  priority_not: Int
-  priority_in: [Int!]
-  priority_not_in: [Int!]
-  priority_lt: Int
-  priority_lte: Int
-  priority_gt: Int
-  priority_gte: Int
+  priority: String
+  priority_not: String
+  priority_in: [String!]
+  priority_not_in: [String!]
+  priority_lt: String
+  priority_lte: String
+  priority_gt: String
+  priority_gte: String
+  priority_contains: String
+  priority_not_contains: String
+  priority_starts_with: String
+  priority_not_starts_with: String
+  priority_ends_with: String
+  priority_not_ends_with: String
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -254,7 +260,7 @@ input TaskUpdateInput {
   name: String
   body: String
   taskState: Int
-  priority: Int
+  priority: String
   deadline: DateTime
 }
 
@@ -262,7 +268,7 @@ input TaskUpdateManyDataInput {
   name: String
   body: String
   taskState: Int
-  priority: Int
+  priority: String
   deadline: DateTime
 }
 
@@ -270,7 +276,7 @@ input TaskUpdateManyMutationInput {
   name: String
   body: String
   taskState: Int
-  priority: Int
+  priority: String
   deadline: DateTime
 }
 
@@ -295,7 +301,7 @@ input TaskUpdateWithoutUserDataInput {
   name: String
   body: String
   taskState: Int
-  priority: Int
+  priority: String
   deadline: DateTime
 }
 
@@ -362,14 +368,20 @@ input TaskWhereInput {
   taskState_lte: Int
   taskState_gt: Int
   taskState_gte: Int
-  priority: Int
-  priority_not: Int
-  priority_in: [Int!]
-  priority_not_in: [Int!]
-  priority_lt: Int
-  priority_lte: Int
-  priority_gt: Int
-  priority_gte: Int
+  priority: String
+  priority_not: String
+  priority_in: [String!]
+  priority_not_in: [String!]
+  priority_lt: String
+  priority_lte: String
+  priority_gt: String
+  priority_gte: String
+  priority_contains: String
+  priority_not_contains: String
+  priority_starts_with: String
+  priority_not_starts_with: String
+  priority_ends_with: String
+  priority_not_ends_with: String
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
