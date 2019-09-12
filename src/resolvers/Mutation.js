@@ -32,26 +32,22 @@ const login = async (parent, args, context, info) => {
     }
 }
 
-const newTask = (parent, args, context) => {
+const newTask = (parent, { name, body, priority, deadline }, context) => {
     const userId = getUserId(context)
     return context.prisma.createTask({
-        name: args.name,
-        body: args.body,
-        taskState: args.taskState,
-        priority: args.priority,
-        deadline: args.deadline,
+        name,
+        body,
+        taskState: 1,
+        priority,
+        deadline,
         user: { connect: { id: userId } }
     })
 }
 
-const editTask = (parent, args, context) => {
+const editTask = (parent, { name, body, priority }, context) => {
     getUserId(context)
     return context.prisma.updateTask({
-        data: {
-            name: args.name,
-            body: args.body,
-            priority: args.priority,
-        },
+        data: { name, body, priority, },
         where: {
             id: args.id,
         },
