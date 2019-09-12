@@ -4,7 +4,7 @@ type Task {
     name: String!
     body: String!
     taskState: Int!
-    priority: Int!
+    priority: String!
     createdAt: DateTime! @createdAt
     deadline: DateTime
     updatedAt: DateTime! @updatedAt

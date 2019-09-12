@@ -6,8 +6,8 @@ type Query {
 }
 
 type Mutation {
-    newTask(name: String!, body: String!, taskState: Int!, priority: Int!, deadline: DateTime): Task! # same as post
-    editTask(id: ID!, name: String, body: String, priority: Int): Task!
+    newTask(name: String!, body: String!, priority: String!, deadline: DateTime): Task! # same as post
+    editTask(id: ID!, name: String, body: String, priority: String): Task!
     moveTask(id: ID!, taskState: Int!): Task!
     deleteTask(id: ID!): Task
     signup(name: String!, email: String!, password: String!): AuthPayLoad
@@ -20,7 +20,7 @@ type Task { # same as Link
     user: User!
     body: String!
     taskState: Int!
-    priority: Int!
+    priority: String!
     createdAt: DateTime!
     deadline: DateTime
     updatedAt: DateTime!
