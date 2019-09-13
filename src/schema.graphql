@@ -1,12 +1,13 @@
 scalar DateTime
 
 type Query {
-    info: String! # these are root fields
-    tasks: [Task!]! # same as feed
+    info: String!
+    tasks: [Task!]!
+    tasksById: [Task!]!
 }
 
 type Mutation {
-    newTask(name: String!, body: String!, priority: String!, deadline: DateTime): Task! # same as post
+    newTask(name: String!, body: String!, priority: String!, deadline: DateTime): Task!
     editTask(id: ID!, name: String, body: String, priority: String): Task!
     moveTask(id: ID!, taskState: Int!): Task!
     deleteTask(id: ID!): Task
@@ -14,7 +15,7 @@ type Mutation {
     login(email: String!, password: String!): AuthPayLoad
 }
 
-type Task { # same as Link
+type Task {
     id: ID!
     name: String!
     user: User!
