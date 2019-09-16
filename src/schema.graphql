@@ -2,7 +2,6 @@ scalar DateTime
 
 type Query {
     info: String!
-    tasks: [Task!]!
     tasksById: [Task!]!
 }
 
