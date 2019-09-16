@@ -1,6 +1,6 @@
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
-const { APP_SECRET, getUserId } = require("../utils")
+const { APP_SECRET, getUserId, authenticateUser } = require("../utils")
 
 const signup = async (parent, args, context, info) => {
     const password = await bcrypt.hash(args.password, 10)
@@ -45,7 +45,7 @@ const newTask = (parent, { name, body, priority, deadline }, context) => {
 }
 
 const editTask = (parent, { name, body, priority }, context) => {
-    getUserId(context)
+    authenticateUser(context)
     return context.prisma.updateTask({
         data: { name, body, priority, },
         where: {
@@ -55,7 +55,7 @@ const editTask = (parent, { name, body, priority }, context) => {
 }
 
 const moveTask = (parent, args, context) => {
-    getUserId(context)
+    authenticateUser(context)
     return context.prisma.updateTask({
         data: {
             taskState: args.taskState
@@ -67,7 +67,7 @@ const moveTask = (parent, args, context) => {
 }
 
 const deleteTask = (parent, args, context) => {
-    getUserId(context)
+    authenticateUser(context)
     return context.prisma.deleteTask({
         id: args.id
     })
