@@ -33,6 +33,7 @@ const login = async (parent, args, context, info) => {
 }
 
 const newTask = (parent, { name, body, priority, deadline }, context) => {
+    if (priority < 0 || priority > 3) throw new Error("Invalid priority")
     const userId = getUserId(context)
     return context.prisma.createTask({
         name,
